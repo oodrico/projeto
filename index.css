@@ -19,7 +19,7 @@
     --stroke-color:rgba(0,0,0,0.5);
     --surface-color:linear-gradient(to bottom, #ADD8E6, #00008B);
     --surface-color-hover: linear-gradient(to bottom, #87CEEB, #1362d8);
-    --highlight-color: linear-gradient(to bottom, #0000FF, #00008B);;
+    --highlight-color: linear-gradient(to bottom, #4747b6, #00008B);;
     --switch-bg: url(./assets/sun.svg);
 }
 
@@ -132,11 +132,12 @@ ul li a:hover{
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+
+    animation: slide-back 0.4s;
 }
 
 .light #switch button{
-    right: 0;
-    left: initial;
+    animation: slide-in .4s forwards;
 }
 
 #switch span{
@@ -148,6 +149,11 @@ ul li a:hover{
     backdrop-filter: blur(4px);
     border-radius: 9999px;
 }
+
+#switch button:hover{
+    outline: 8px solid var(--highlight-color);
+}
+
 /*media  queries */
 @media (min-width: 700px){
     :root{
@@ -155,5 +161,24 @@ ul li a:hover{
     }
     .light{
     --bg-url:linear-gradient(to bottom, #B0E0E6, #4682B4);
+    }
+}
+
+/*animation*/
+@keyframes slide-in{
+    from{
+        left: 0;
+    }
+    to{
+        left: 50%;
+    }
+}
+
+@keyframes slide-back{
+    from{
+        left: 50%;
+    }
+    to{
+        left: 0;
     }
 }
