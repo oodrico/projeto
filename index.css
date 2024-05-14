@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --text-color:white;
+    --bg-url: linear-gradient(to bottom, #4B0082, #2E0854);
+    --stroke-color: rgba(255,255,255,0.5);
+    --surface-color:linear-gradient(to bottom, #8A2BE2, #4B0082);
+    --surface-color-hover:linear-gradient(to bottom, #483D8B, #800080);
+    --highlight-color:rgba(255,255,255,0.2);
+    --switch-bg: url(./assets/moon-stars.svg)
+}
+
+.light{
+    --text-color:black;
+    --bg-url:linear-gradient(to bottom, #B0E0E6, #4682B4);
+    --stroke-color:rgba(0,0,0,0.5);
+    --surface-color:linear-gradient(to bottom, #ADD8E6, #00008B);
+    --surface-color-hover: linear-gradient(to bottom, #87CEEB, #1362d8);
+    --highlight-color: linear-gradient(to bottom, #0000FF, #00008B);;
+    --switch-bg: url(./assets/sun.svg);
+}
+
+
+body{
+    background: var(--bg-url) no-repeat top center/cover;
+}
+body *{
+    font-family: 'inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    margin:56px auto 0px;
+}
+
+#profile{
+    text-align: center;
+    padding: 24px
+}
+#profile img{
+    width: 112px;
+}
+#profile p{
+    font-weight: bold;
+    line-height: 24px;
+    margin-top: 8px;
+
+}
+
+/* Links */
+ul{
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0;
+}
+ul li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 16px 24px;
+
+    background:var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition: background 0.2s;
+}
+
+ul li a:hover{
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+/* social */
+#social{
+    display: flex;
+    justify-content: center;
+
+    padding: 24px 0;
+
+    font-size: 24px;
+    
+}
+#social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+#social a:hover{
+    background: var(--highlight-color);
+}
+
+/*botoes*/
+
+#switch{
+    position: relative;
+    width: 64px;
+
+    margin: 4px auto;
+    
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg) no-repeat center;
+    border:0;
+    border-radius: 50%; 
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background:var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
